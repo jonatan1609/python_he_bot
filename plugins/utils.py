@@ -4,7 +4,7 @@ config = ConfigParser()
 config.read('config.ini')
 channel = config['bot']['channel']
 groups = config['bot']['allowed_groups'].split(',')
-bot_username = config['bot']['username']
+bot_username = config['bot']['username'].strip('"')
 
 
 async def detect_exception(string):

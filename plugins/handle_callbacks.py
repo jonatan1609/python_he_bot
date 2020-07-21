@@ -16,7 +16,7 @@ async def callback_handler(_client: Client, callback: CallbackQuery):
                     user_message.from_user.id
                 ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
                     "איך לשלוח קוד / שגיאה:",
-                    url=f"t.me/{bot_username}?start=howtosharecode")]])
+                    url=f"t.me/{bot_username}/?start=howtosharecode")]])
             )
 
             await (await _client.get_messages(group, int(message))).delete()
