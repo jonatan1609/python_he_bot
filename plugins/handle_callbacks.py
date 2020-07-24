@@ -15,7 +15,7 @@ async def callback_handler(_client: Client, callback: CallbackQuery):
     """.format(
                     user_message.from_user.first_name,
                     user_message.from_user.id,
-                    "לנוחיות מצורף כאן הכותרת של התמונה: \n ```{}```".format(user_message.caption)
+                    "לנוחיותך מצורף כאן הכותרת של התמונה: \n ```{}```".format(user_message.caption)
                     if user_message.caption else ''
                 ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
                     "איך לשלוח קוד / שגיאה:",
