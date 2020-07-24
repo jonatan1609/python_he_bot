@@ -11,12 +11,15 @@ async def callback_handler(_client: Client, callback: CallbackQuery):
             await user_message.reply(
                 """
     \u200f[{}](tg://user?id={}), ההודעה נמחקה.
+    {}
     """.format(
                     user_message.from_user.first_name,
-                    user_message.from_user.id
+                    user_message.from_user.id,
+                    "לנוחיות מצורף כאן הכותרת של התמונה: \n ```{}```".format(user_message.caption)
+                    if user_message.caption else ''
                 ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
                     "איך לשלוח קוד / שגיאה:",
-                    url=f"t.me/{bot_username}/?start=howtosharecode")]])
+                    url=f"t.me/{bot_username}?start=howtosharecode")]])
             )
 
             await (await _client.get_messages(group, int(message))).delete()

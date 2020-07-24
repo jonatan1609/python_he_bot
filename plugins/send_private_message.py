@@ -5,15 +5,25 @@ from pyrogram import Client, Filters, Message
 async def how_to_share_code(_client: Client, message: Message):
     await message.reply(
             """
-איך לשלוח קוד / שגיאה:
-**עדיפות ראשונה:**
-לשתף את הקוד באתר כמו nekobin.com,     ולשתף כאן את הקישור. [מומלץ להחליף את סיומת txt לסיומת py].
-**עדיפות שניה:**
-קיים כלי במחשב  שמאפשר לבצע צילומי מסך על חלק ספציפי במסך,
-לוחצים ctrl + shift + s, בוחרים את האזור הרצוי שרוצים לשתף,
-לאחר מכן ניגשים לטלגרם ולוחצים ctrl + v.
+**אפשרות ראשונה**:
+    להעתיק את הקוד לאתר כגון del.dog או nekobin.com,
+    ולשלוח בקבוצה את הקישור,
+    מומלץ להוסיף לסוף הקישור את את הסיומת של הקובץ,
+     על מנת לצבוע את הטקסט.
+    לדוגמה: `del.dog/mycode.py` 
+    
+**אפשרות שניה**:
+    **במערכות Windows**:
+         ניתן ללחוץ `Control+shift+S` ולסמן את הקטע הדרוש,
+         או לחלופין `win+PrtSc` בשביל צילום מסך מלא,
+         ולאחר מכן `Ctrl+V` בתוך טלגרם כדי לשלוח את התמונה.
+    
+    **במערכות Linux**:
+        לרוב בשביל לבצע צילום מסך לוחצים `Ctrl+Shift+PrtSc`,
+        או `Ctrl+PrtSc` בשביל מסך מלא,
+        ומדביקים את התצלום בטלגרם על ידי `Ctrl+V`.
+
 
 מומלץ גם לעבור על הקישור הזה:
-
-https://github.com/shlomif/how-to-share-code-online"""
-        )
+https://github.com/shlomif/how-to-share-code-online
+""")
