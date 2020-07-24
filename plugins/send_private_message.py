@@ -14,7 +14,7 @@ async def how_to_share_code(_client: Client, message: Message):
     
 **אפשרות שניה**:
     **במערכות Windows**:
-         ניתן ללחוץ `Control+shift+S` ולסמן את הקטע הדרוש,
+         ניתן ללחוץ `Win+shift+S` ולסמן את הקטע הדרוש,
          או לחלופין `win+PrtSc` בשביל צילום מסך מלא,
          ולאחר מכן `Ctrl+V` בתוך טלגרם כדי לשלוח את התמונה.
     
