@@ -1,9 +1,9 @@
-from pyrogram import Client, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client, types
 from .utils import bot_username
 
 
 @Client.on_callback_query()
-async def callback_handler(_client: Client, callback: CallbackQuery):
+async def callback_handler(_client: Client, callback: types.CallbackQuery):
     ok, message, group = callback.data.split('|')
     if ok == 'False':
         user_message = await _client.get_messages(int(group), int(message))
@@ -17,7 +17,7 @@ async def callback_handler(_client: Client, callback: CallbackQuery):
                     user_message.from_user.id,
                     "לנוחיותך מצורף כאן הכותרת של התמונה: \n ```{}```\n\n⬇️לחץ כאן⬇️".format(user_message.caption)
                     if user_message.caption else ''
-                ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
+                ), reply_markup=types.InlineKeyboardMarkup([[types.InlineKeyboardButton(
                     "איך לשלוח קוד / שגיאה:",
                     url=f"t.me/{bot_username}?start=howtosharecode")]])
             )

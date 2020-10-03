@@ -1,8 +1,8 @@
-from pyrogram import Client, Filters, Message
+from pyrogram import Client, filters, types
 
 
-@Client.on_message(Filters.text & Filters.private & Filters.create(lambda _, m: m.text == "/start howtosharecode"))
-async def how_to_share_code(_client: Client, message: Message):
+@Client.on_message(filters.text & filters.private & filters.create(lambda _, __, m: m.text == "/start howtosharecode"))
+async def how_to_share_code(_client: Client, message: types.Message):
     await message.reply(
             """
 **אפשרות ראשונה**:
@@ -26,4 +26,7 @@ async def how_to_share_code(_client: Client, message: Message):
 
 מומלץ גם לעבור על הקישור הזה:
 https://github.com/shlomif/how-to-share-code-online
+
+כמו כן מומלץ לבקר באתר הנועד למטורה זו:
+screenshot.help
 """)

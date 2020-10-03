@@ -1,18 +1,16 @@
-from pyrogram import Client, Filters, Message
-from .utils import detect_exception
+from pyrogram import Client, filters, types
+from .utils import detect_exception, admins
 
 
-@Client.on_message(Filters.reply & Filters.command('paste', '#'))
-async def paste_code(_client: Client, message: Message):
+@Client.on_message(filters.reply & filters.command('paste', '#'))
+async def paste_code(_client: Client, message: types.Message):
 
     await message.delete()
+    original_message_sender_id = message.reply_to_message.from_user.id
+    sender = message.from_user.id
+    is_usable = message.from_user.id in admins.get(message.chat.id) or original_message_sender_id == sender
 
-    if commander_status in ('creator', 'administrator') or original_message_sender_id == commander_id:
-
-        original_message_sender_id = message.reply_to_message.from_user.id
-        commander_id = message.from_user.id
-        commander_status = await (_client.get_chat_member(message.chat.id, commander_id)).status
+    if is_usable:
 
         await message.reply_to_message.delete()
         await (message.reply_to_message.reply(await detect_exception(message.reply_to_message.text)))
-   
