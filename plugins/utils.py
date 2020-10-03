@@ -1,10 +1,23 @@
 from aiohttp import ClientSession
 from configparser import ConfigParser
+
 config = ConfigParser()
 config.read('config.ini')
 channel = config['bot']['channel']
-groups = config['bot']['allowed_groups'].split(',')
+groups = [int(x) for x in config['bot']['allowed_groups'].split(',')]
 bot_username = config['bot']['username'].strip('"')
+admins = {}
+
+
+async def set_administrators(app):
+    admins = {}
+    for chat in groups:
+        async for admin in app.iter_chat_members(chat, filter="administrators"):
+            if admin.get(chat):
+                admins[chat].append(admin.user.id)
+            else:
+                admins[chat] = [admin.user.id]
+    global admins
 
 
 async def detect_exception(string):

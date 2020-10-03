@@ -1,6 +1,5 @@
 from pyrogram import Client
+from plugins.utils import set_administrators
 
-
-Client(
-    "PythonHeBot"
-).run()
+app = Client("PythonHeBot")
+app.run(set_administrators(app))
