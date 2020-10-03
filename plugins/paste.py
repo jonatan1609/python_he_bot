@@ -8,7 +8,7 @@ async def paste_code(_client: Client, message: types.Message):
     await message.delete()
     original_message_sender_id = message.reply_to_message.from_user.id
     sender = message.from_user.id
-    is_usable = message.from_user.id in admins or original_message_sender_id == sender
+    is_usable = message.from_user.id in admins.get(message.chat.id) or original_message_sender_id == sender
 
     if is_usable:
 

@@ -11,10 +11,9 @@ admins = {}
 
 async def set_administrators(app):
     global admins
-    admins = {}
     for chat in groups:
         async for admin in app.iter_chat_members(chat, filter="administrators"):
-            if admin.get(chat):
+            if admins.get(chat):
                 admins[chat].append(admin.user.id)
             else:
                 admins[chat] = [admin.user.id]
