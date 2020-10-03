@@ -2,7 +2,7 @@ from pyrogram import Client, filters, types
 from .utils import detect_exception, groups
 
 
-@Client.on_message(~filters.private & filters.text & filters.create(lambda _, m: all(x in m.text for x in (
+@Client.on_message(~filters.private & filters.text & filters.create(lambda _, __, m: all(x in m.text for x in (
             'Traceback (most recent call last):',
             'File', 'line', 'in', '.py'
     )) and len(m.text) > 250) & filters.create(lambda _, m: m.chat.id in groups))

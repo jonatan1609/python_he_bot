@@ -2,7 +2,7 @@ from pyrogram import Client, filters, types
 from .utils import channel, groups
 
 
-@Client.on_message(filters.photo & filters.create(lambda _, m: str(m.chat.id) in groups))
+@Client.on_message(filters.photo & filters.create(lambda _, __, m: str(m.chat.id) in groups))
 async def photo_handler(_client: Client, message: types.Message):
     chat = str(message.chat.id)
     await _client.send_photo(

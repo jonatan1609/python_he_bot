@@ -1,7 +1,7 @@
 from pyrogram import Client, filters, types
 
 
-@Client.on_message(filters.text & filters.private & filters.create(lambda _, m: m.text == "/start howtosharecode"))
+@Client.on_message(filters.text & filters.private & filters.create(lambda _, __, m: m.text == "/start howtosharecode"))
 async def how_to_share_code(_client: Client, message: types.Message):
     await message.reply(
             """

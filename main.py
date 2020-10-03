@@ -1,5 +1,9 @@
-from pyrogram import Client
+from pyrogram import Client, idle
 from plugins.utils import set_administrators
 
+
 app = Client("PythonHeBot")
-app.run(set_administrators(app))
+app.start()
+app.loop.run_until_complete(set_administrators(app))
+idle()
+app.stop()
