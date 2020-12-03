@@ -24,9 +24,9 @@ async def how_to_share_code(_client: Client, message: types.Message):
         ומדביקים את התצלום בטלגרם על ידי `Ctrl+V`.
 
 
-מומלץ גם לעבור על הקישור הזה:
+מומלץ לעבור על הקישור הזה:
 https://github.com/shlomif/how-to-share-code-online
 
-כמו כן מומלץ לבקר באתר הנועד למטורה זו:
+כמו כן מומלץ לבקר באתר הנועד למטרה זו:
 screenshot.help
 """)
